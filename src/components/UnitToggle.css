@@ -1,0 +1,33 @@
+.unit-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.unit-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.unit-toggle__option {
+  opacity: 0.5;
+  font-weight: 400;
+  transition: all 0.2s;
+}
+
+.unit-toggle__option--active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.unit-toggle__separator {
+  opacity: 0.4;
+}

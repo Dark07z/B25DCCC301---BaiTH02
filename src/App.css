@@ -1,0 +1,278 @@
+/* ═══════════════════════════════════════════
+   Reset & Base
+   ═══════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 20px 24px;
+  transition: background 0.6s ease;
+}
+
+/* ═══════════════════════════════════════════
+   Background Themes
+   ═══════════════════════════════════════════ */
+
+.bg-default {
+  background: #fff;
+  color: #1565c0;
+}
+
+.bg-clear {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 50%, #f093fb 100%);
+}
+
+.bg-cloudy {
+  background: linear-gradient(135deg, #89b4c4 0%, #a8c0d0 50%, #b8cfe0 100%);
+}
+
+.bg-overcast {
+  background: linear-gradient(135deg, #606c88 0%, #3f4c6b 100%);
+}
+
+.bg-fog {
+  background: linear-gradient(135deg, #9aa5b1 0%, #bcc5cf 50%, #cbd5e0 100%);
+}
+
+.bg-drizzle {
+  background: linear-gradient(135deg, #667db6 0%, #0082c8 50%, #667db6 100%);
+}
+
+.bg-rain {
+  background: linear-gradient(135deg, #3a506b 0%, #5b8a9a 50%, #3a506b 100%);
+}
+
+.bg-heavy-rain {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.bg-snow {
+  background: linear-gradient(135deg, #e0e5ec 0%, #d4dce4 50%, #c9d6df 100%);
+}
+
+.bg-thunder {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+}
+
+/* ═══════════════════════════════════════════
+   Top Bar
+   ═══════════════════════════════════════════ */
+
+.topbar {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto 24px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+}
+
+.topbar__title {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* ═══════════════════════════════════════════
+   Dashboard
+   ═══════════════════════════════════════════ */
+
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+/* ═══════════════════════════════════════════
+   Bento Grid Layout
+   ═══════════════════════════════════════════ */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  gap: 16px;
+  animation: gridFadeIn 0.5s ease;
+}
+
+@keyframes gridFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+  Grid positions:
+  ┌──────────────┬──────┬──────┐
+  │  Hero Card   │ Hum. │ Wind │
+  │  (2×2)       │      │      │
+  ├──────────────┤  UV  │Press.│
+  │              │      │      │
+  ├──────────────┴──────┴──────┤
+  │     Forecast (full width)  │
+  └────────────────────────────┘
+*/
+
+/* ═══════════════════════════════════════════
+   Default Theme Overrides
+   ═══════════════════════════════════════════ */
+
+.bg-default .topbar__title {
+  color: #1565c0;
+}
+
+.bg-default .topbar {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.bg-default .city-search__input-wrapper {
+  background: rgba(21, 101, 192, 0.06);
+  border-color: rgba(21, 101, 192, 0.2);
+}
+
+.bg-default .city-search__input-wrapper:focus-within {
+  background: rgba(21, 101, 192, 0.1);
+  border-color: rgba(21, 101, 192, 0.4);
+}
+
+.bg-default .city-search__input,
+.bg-default .city-search__toggle {
+  color: #1565c0;
+}
+
+.bg-default .city-search__input::placeholder {
+  color: rgba(21, 101, 192, 0.55);
+}
+
+.bg-default .unit-toggle {
+  background: rgba(21, 101, 192, 0.06);
+  border-color: rgba(21, 101, 192, 0.2);
+  color: #1565c0;
+}
+
+.bg-default .unit-toggle:hover {
+  background: rgba(21, 101, 192, 0.12);
+}
+
+.bg-default .status {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(21, 101, 192, 0.15);
+  color: #1565c0;
+}
+
+.bg-default .status__spinner {
+  border-color: rgba(21, 101, 192, 0.15);
+  border-top-color: #1565c0;
+}
+
+.bg-default .status__retry {
+  background: rgba(21, 101, 192, 0.08);
+  border-color: rgba(21, 101, 192, 0.15);
+  color: #1565c0;
+}
+
+.bg-default .status__retry:hover {
+  background: rgba(21, 101, 192, 0.14);
+}
+
+/* ═══════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-card {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .forecast {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 12px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 16px;
+  }
+
+  .topbar__actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .topbar__actions .city-search {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .hero-card {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .forecast {
+    grid-column: 1 / -1;
+  }
+}
